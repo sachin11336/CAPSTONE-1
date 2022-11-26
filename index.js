@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const authRoute = require("./controllers/auth");
 const shippingRoute = require("./controllers/Shipping.Address");
 const productRoute = require("./controllers/Product");
+const orderRoute = require("./controllers/Order");
 const app = express();
 const PORT = 8000;
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use("/", authRoute);
 app.use(shippingRoute);
 app.use("/products", productRoute);
+app.use("/orders", orderRoute);
 
 app.listen(process.env.PORT || PORT, () => {
   console.log("backend is running! " + PORT);

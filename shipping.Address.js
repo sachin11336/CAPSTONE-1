@@ -3,11 +3,11 @@ require("dotenv").config();
 const CryptoJs = require("crypto-js");
 const jwt = require("jsonwebtoken");
 const { verifyTokenAndAuthorization } = require("../middleware/verifyToken");
-const shippingAdress = require("../models/shippingAdress");
+const shippingAddress = require("../models/shippingAdress");
 const User = require("../models/User");
 
 router.post("/shippings/:id", verifyTokenAndAuthorization, async (req, res) => {
-  const newShipping = new shippingAdress({
+  const newShipping = new shippingAddress({
     name: req.body.name,
     contactNumber: req.body.contactNumber,
     street: req.body.street,
