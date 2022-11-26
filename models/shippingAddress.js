@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
-const AddressScema = new mongoose.Schema(
+const AddressSchema = new mongoose.Schema(
   {
     AccessToken: {
       type: String,
     },
-
+    
     name: { type: String },
     city: { type: String, required: true },
     state: { type: String, required: true },
@@ -16,4 +16,4 @@ const AddressScema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-module.exports = mongoose.model("Addresses", AddressScema);
+module.exports = mongoose.model("Addresses", AddressSchema);
