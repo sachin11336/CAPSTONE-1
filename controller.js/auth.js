@@ -3,6 +3,8 @@ const User = require("../models/User");
 require("dotenv").config();
 const CryptoJs = require("crypto-js");
 const jwt = require("jsonwebtoken");
+const { verifyTokenAndAdmin } = require("../middleware/verifyToken");
+
 
 router.post("/users", async (req, res) => {
   const newUser = new User({
@@ -43,6 +45,7 @@ router.post("/auth", async (req, res) => {
     const accessToken = jwt.sign(
       {
         id: user._id,
+        role: user.role,
       },
       process.env.JWT_SEC,
       { expiresIn: "3d" }
